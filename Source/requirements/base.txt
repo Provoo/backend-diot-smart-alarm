@@ -1,0 +1,16 @@
+coverage==4.2
+Django==2.0.7
+django-cors-headers==2.2.0
+djangorestframework==3.8.2
+drfdocs==0.0.11
+pipdeptree==0.8.0
+Pygments==2.1.3
+PyJWT==1.4.2
+whitenoise==3.2.2
+pytest-django
+psycopg2-binary
+wagtail==2.4
+requests==2.13
+django-allauth
+django-rest-auth
+django-rest-auth[with_social]

@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  db:
+    extends:
+      file: base.yml
+      service: db
+    ports:
+      - "8002:5432"
+
+  web:
+    extends:
+      file: base.yml
+      service: web
+    build:
+      args:
+        - DJANGO_ENV=$DJANGO_ENV
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./Source:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  diot_data:
+    external: true

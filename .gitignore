@@ -1,0 +1,10 @@
+!.gitkeep
+.DS_Store
+.idea
+.env
+staticfiles
+*/migrations
+.coverage
+env/*
+media
+*pyc

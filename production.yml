@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  db:
+    extends:
+      file: base.yml
+      service: db
+    restart: always
+    ports:
+      - "8002:5432"
+
+  web:
+    extends:
+      file: base.yml
+      service: web
+    restart: always
+    build:
+      args:
+        - DJANGO_ENV=$DJANGO_ENV
+    command: bash -c "chown -R www-data static/ && chmod -R 775 static/ && python manage.py collectstatic --noinput && gunicorn -c gunicorn.conf diot-back.wsgi:application"
+    volumes:
+      - ./Source:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  diot_data:
+    external: true

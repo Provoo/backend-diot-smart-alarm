@@ -1,0 +1,4 @@
+-r base.txt
+
+pytz==2016.7
+gunicorn==19.7.1
