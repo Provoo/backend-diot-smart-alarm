@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/gdesign/ProgramingTools/PythonEnviromentsVsCode/Py3Django/bin/python",
+    "python.pythonPath": "/home/gdesign/developer-tools/python-env/py3Django/bin/python",
     "python.linting.pylintEnabled": true
 }

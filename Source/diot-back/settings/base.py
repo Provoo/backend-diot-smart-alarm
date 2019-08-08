@@ -38,14 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_auth',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'rest_auth',
     'rest_auth.registration',
     'corsheaders',
-    'taggit',
-    'MilkUsers',
+    'diot_api',
 ]
 
 MIDDLEWARE = [
@@ -148,9 +147,9 @@ REST_FRAMEWORK = {
     )
 }
 
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'MilkUsers.serializers.MyRegisterSerializer'
-}
+# REST_AUTH_REGISTER_SERIALIZERS = {
+#     'REGISTER_SERIALIZER': 'MilkUsers.serializers.MyRegisterSerializer'
+# }
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.RemoteUserBackend',

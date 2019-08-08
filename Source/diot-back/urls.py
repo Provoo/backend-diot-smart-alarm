@@ -10,10 +10,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('diot_api/', include('diot_api.urls')),
     re_path(r'^rest-auth/', include('rest_auth.urls')),
     re_path(r'^rest-auth/registration/',
             include('rest_auth.registration.urls')),
-    path('milk_api/', include('MilkUsers.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

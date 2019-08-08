@@ -1,23 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from django.contrib.postgres.fields import ArrayField, JSONField
+from django.utils import timezone
+
+import uuid
 
 
+class DiodDiveceTypes(models.Model):
+    code = models.CharField(unique=True, max_length=30, primary_key=True)
+    name = models.CharField(unique=True, max_length=30)
+    date_of_launch = models.DateTimeField(default=timezone.now)
+    version = models.CharField(max_length=5)
 
-class DiodDiveceType(models.Model):
-    code = models.StrignField(unique=True, primary_key=True)
-    userId = models.OneToOneField(
-        User)
-    code = models.OneToOneField(
-        DiodDiveceType)
-
-        
 class DiotDivice(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
     userId = models.OneToOneField(
-        User)
+        User, on_delete=models.CASCADE)
     code = models.OneToOneField(
-        DiodDiveceType)
+        DiodDiveceTypes, on_delete=models.CASCADE)
     
 
 class Dh11Sensor(models.Model):
