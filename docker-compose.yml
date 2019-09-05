@@ -8,10 +8,10 @@ services:
     ports:
       - "8002:5432"
 
-  web:
+  diot_back:
     extends:
       file: base.yml
-      service: web
+      service: diot_back
     build:
       args:
         - DJANGO_ENV=$DJANGO_ENV
@@ -24,5 +24,5 @@ services:
       - db
 
 volumes:
-  diot_data:
+  diot_data_dev:
     external: true

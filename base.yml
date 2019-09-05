@@ -5,9 +5,9 @@ services:
     image: postgres:9.5
     env_file: .env
     volumes:
-      - diot_data:/var/lib/postgresql/data/pgdata
+      - diot_data_dev:/var/lib/postgresql/data/pgdata
 
-  web:
+  diot_back:
     build:
       context: ./Source
     env_file: .env

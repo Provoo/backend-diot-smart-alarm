@@ -8,3 +8,4 @@ staticfiles
 env/*
 media
 *pyc
+.vscode/settings.json

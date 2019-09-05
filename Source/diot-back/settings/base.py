@@ -147,9 +147,9 @@ REST_FRAMEWORK = {
     )
 }
 
-# REST_AUTH_REGISTER_SERIALIZERS = {
-#     'REGISTER_SERIALIZER': 'MilkUsers.serializers.MyRegisterSerializer'
-# }
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'diot_api.serializers.MyRegisterSerializer'
+}
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.RemoteUserBackend',

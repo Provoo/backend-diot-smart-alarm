@@ -7,12 +7,36 @@ from rest_framework.decorators import api_view, permission_classes
 from django.shortcuts import get_list_or_404, get_object_or_404
 from rest_framework import status
 
-from .models import Dh11Sensor
-from .serializers import Dh11SensorSerializer
+from django.contrib.auth.models import User
 
 
-class Dh11SensorView(generics.RetrieveUpdateAPIView):
-    permission_classes = []
-    queryset = Dh11Sensor.objects.select_related('ditoDiviceId')
-    lookup_field = "ditoDiviceId"
-    serializer_class = Dh11SensorSerializer
+from .models import DiotDiveceTypes, DiotDivice
+
+from .serializers import DiotDiveceTypesSerializer, DiotDiviceSerializer
+
+
+class DiotDiveceTypesView(generics.ListAPIView):
+    permission_classes = [AllowAny]
+    queryset = DiotDiveceTypes.objects.all()
+    serializer_class = DiotDiveceTypesSerializer
+
+
+class DiotDiviceView(generics.CreateAPIView):
+    queryset = DiotDivice.objects.select_related('userId')
+    permission_classes = [AllowAny]
+    serializer_class = DiotDiviceSerializer
+
+
+class DiotDiviceDetailView(generics.RetrieveUpdateAPIView):
+    queryset = DiotDivice.objects.select_related('userId')
+    serializer_class = DiotDiviceSerializer
+
+class DiotDiviceList(generics.ListAPIView):
+    queryset = DiotDivice.objects.select_related('userId')
+    permission_classes = [AllowAny]
+    serializer_class = DiotDiviceSerializer
+
+    def get_queryset(self):
+        diotDat = DiotDiviceSerializer.objects.filter(
+            userId=self.kwargs['userId'])
+        return diotDat

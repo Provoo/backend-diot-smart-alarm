@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  db:
+  db_prod:
     extends:
       file: base.yml
       service: db
@@ -9,7 +9,7 @@ services:
     ports:
       - "8002:5432"
 
-  web:
+  diot_back_prod:
     extends:
       file: base.yml
       service: web
@@ -26,5 +26,5 @@ services:
       - db
 
 volumes:
-  diot_data:
+  diot_data_prod:
     external: true
