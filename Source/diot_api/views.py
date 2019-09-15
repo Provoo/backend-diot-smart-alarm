@@ -37,6 +37,6 @@ class DiotDiviceList(generics.ListAPIView):
     serializer_class = DiotDiviceSerializer
 
     def get_queryset(self):
-        diotDat = DiotDiviceSerializer.objects.filter(
+        diotDat = DiotDivice.objects.filter(
             userId=self.kwargs['userId'])
         return diotDat

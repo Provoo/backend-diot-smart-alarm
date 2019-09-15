@@ -1,9 +1,24 @@
 from django.contrib import admin
 
-# from .models import (Dh11Sensor, DiodDiveceTypes,
-#                      DiotDivice, Mq2Sensor)
-# Register your models here.
-# @admin.register(Dh11Sensor)
-# class Dh11SensorAdmin(admin.ModelAdmin):
-#     display_list = ('ditoDiviceId',
-#                     'states',)
+from .models import (DiotDiveceTypes,
+                     DiotDivice)
+
+
+@admin.register(DiotDivice)
+class DiotDiviceAdmin(admin.ModelAdmin):
+    list_display = ('id',
+                    'userId',
+                    'code',
+                    'publish_topics',
+                    'subcribers_topics')
+
+
+@admin.register(DiotDiveceTypes)
+class DiotDiveceTypesAdmin(admin.ModelAdmin):
+    list_display = ('code',
+                    'name',
+                    'date_of_launch',
+                    'version',
+                    'publish_chanels',
+                    'subcribers_chanels',
+                    )
