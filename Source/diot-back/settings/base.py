@@ -68,9 +68,6 @@ ROOT_URLCONF = 'diot-back.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(PROJECT_ROOT, "/MilkTips/templates"),
-        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
