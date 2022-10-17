@@ -1,15 +1,12 @@
-# TFG UNIR Carlos Velasco
-## Aplicación Api Diot Backend en Django
+# Diot Smart Alarm Backend 
 
-Esta aplicación es parte del proyecto Diot Alarma Inteligente.
+A simple rest api for my degree proyect Diot Smart Alarm, you will find the most common django apps and also a mosquitto docker for the mqtt comunications betwean the app and the sensors for the device.
 
-
-## Requisitos
+## Requirements
 * Docker
 * Docker Compose
 
-## Instalación
-La aplicación se despliega con dockers por lo que ejecutaremos los comandos de docker-compose para construir y correr la aplicación en modo de desarrollo.
+## Install
 
 ```bat
 docker-compose build
